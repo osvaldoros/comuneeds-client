@@ -103,7 +103,7 @@ define(function(){
 		* Invokes the API in order to login into the system
 		* 
 		*/
-		login:function(email, password){
+		login:function(username, password){
 
 			// show a loader animation
 			$.mobile.loading( 'show', {
@@ -120,7 +120,7 @@ define(function(){
 			var jqxhr = $.ajax({
 				url: this.host + "/api/comuneeds/login", 
 				headers:{
-					Authorization: "Plain " + email + ":" + password
+					Authorization: "Plain " + username + ":" + password
 				}
 			})
 
