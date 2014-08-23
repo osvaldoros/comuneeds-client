@@ -134,7 +134,7 @@ define(function(){
 					owner.session.user = data;
 
 					// for now just send the user to the User list
-					$.mobile.changePage("UserList");
+					$.mobile.changePage("userPage");
 				}
 			})
 
