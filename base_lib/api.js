@@ -3,7 +3,7 @@ define(function(){
 
 		session:null,
 		//host:"", // for local backends
-		host:"http://comuneeds.org/",
+		host:"http://comuneeds.org",
 
 
 		/*
