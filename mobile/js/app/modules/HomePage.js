@@ -9,8 +9,8 @@ define([
 
 		activate:function(){
 			$("#newProjectButton").on('click', function(){
-				nav.gotoPage("newProjectPage")
-			});		
+				nav.gotoPage("signupPage")
+			});	
 			$("#guideButton").on('click', function(){
 				nav.gotoPage("guidePage")
 			});			
@@ -20,6 +20,9 @@ define([
 		},
 
 		deactivate:function(){
+			$('#newProjectButton').unbind('click');
+			$('#guideButton').unbind('click');
+			$('#signinButton').unbind('click');			
 		}
 
 	};

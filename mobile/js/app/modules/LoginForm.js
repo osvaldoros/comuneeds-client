@@ -19,6 +19,10 @@ define([
 				api.logout();
 			})
 
+			$("#loginSignupButton").on('click', function(){
+				nav.gotoPage("signupPage");
+			})
+
 			$("#loginButton").on('click', function(){
 				var form = $("#loginForm");
 				var formValues = util.arrayToMap(form.serializeArray());
@@ -43,6 +47,7 @@ define([
 			$('#loginForm').unbind('submit');
 			$('#logoutButton').unbind('click');
 			$('#loginButton').unbind('click');
+			$('#loginSignupButton').unbind('click');
 		}
 
 	};

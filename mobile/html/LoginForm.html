@@ -2,14 +2,22 @@
 
     <div data-theme="a" data-role="header">
         <h3>
-            Comuneeds
+            Login
         </h3>
     </div>
 
     <div data-role="content">
-      <h2>
-          Necesidades Humanas
-      </h2>
+      <div data-controltype="textblock">
+          <p>
+              <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                  <em>
+                      Si todavia no tienes una cuenta, consulta a el coordinador de tu equipo
+                      o al administrador del proyecto.
+                  </em>
+              </span>
+          </p>
+      </div>
+
       <form id="loginForm">
           <div data-role="fieldcontain" data-controltype="textinput">
               <label for="textinput20">
@@ -23,29 +31,20 @@
               </label>
               <input name="password" placeholder="" value="" type="password"/>
           </div>
-          <input type="submit" id="loginButton" data-theme="b" id="loginButton" data-icon="arrow-r" data-iconpos="left" value="Login">
+          <input type="submit" id="loginButton" data-theme="b" id="loginButton" data-icon="arrow-r" data-iconpos="left" value="Entrar">
       </form>
+
       <div data-controltype="textblock">
           <p>
               <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
                   <em>
-                      Si todavia no tienes una cuenta, consulta al coordinador de tu equipo
-                      o al administrador del proyecto.
+                      Si no eres parte de ningun equipo y deseas crear tu propio proyecto, entra aqui:
                   </em>
               </span>
           </p>
       </div>
-      <div data-controltype="textblock">
-          <p>
-              <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
-                  <em>
-                      Si no tienes cuenta y deseas crear tu propio proyecto, entra aqui:
-                  </em>
-              </span>
-          </p>
-      </div>
-      <a data-role="button" data-theme="b" id="newProjectButton" data-icon="plus" data-iconpos="left">
-          Crear nuevo proyecto
+      <a data-role="button" data-theme="b" id="loginSignupButton" data-icon="plus" data-iconpos="left">
+          Crear una cuenta
       </a>
     </div>    
 

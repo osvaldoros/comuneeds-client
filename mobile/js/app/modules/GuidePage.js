@@ -8,6 +8,9 @@ define([
 	return {
 
 		activate:function(){
+			$("#guideBackButton").on('click', function(){
+				nav.back();
+			});				
 		},
 
 		deactivate:function(){

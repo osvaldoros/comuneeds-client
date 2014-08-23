@@ -7,6 +7,9 @@ define([
 
 		// the controller for the page we're currently on
 		currentModule:null,
+		currentPageName:null,
+		pageHistory:[],
+
 
 		setConfig:function(config){
 			this._config = config;
@@ -37,6 +40,7 @@ define([
 					$.mobile.changePage("#" + pageName);
 					// if there is already a currentModule deactivate it ( the controller of the page we are leaving )
 					if(owner.currentModule != null && typeof(owner.currentModule.deactivate) == "function"){
+						owner.pageHistory.push(owner.currentPageName);
 						owner.currentModule.deactivate();
 					}
 					// load the new controller via RequireJS
@@ -44,6 +48,7 @@ define([
 						// when we have the new module, activate it
 						if(typeof(module.activate) == "function"){
 							owner.currentModule = module;
+							owner.currentPageName = pageName;
 							module.activate();
 						}
 					})
@@ -53,6 +58,22 @@ define([
 			}
 		},
 
+		/*
+		*
+		*
+		* back 
+		* 
+		* loads the previous page in the stack
+		*
+		*/
+		back:function(){		
+			if(this.pageHistory && this.pageHistory.length > 0){
+				var lastPage = this.pageHistory.pop();
+				this.gotoPage(lastPage);
+			}else{
+				this.gotoPage(this._config.firstPage);
+			}
+		},
 
 		/*
 		*
