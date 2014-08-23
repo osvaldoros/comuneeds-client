@@ -1,9 +1,10 @@
 define([
 	'jquery',
 	'api',
-	'util'
+	'util',
+	'nav'
 	],
-	function($, api, util){
+	function($, api, util, nav){
 	return {
 
 		activate:function(){
@@ -29,7 +30,9 @@ define([
 					alert("please enter your password");
 					return;
 				}
-				api.login(formValues.username, formValues.password);
+				api.login(formValues.username, formValues.password, function(user){
+					nav.gotoPage("userPage");
+				});
 			})
 
 		},

@@ -103,7 +103,7 @@ define(function(){
 		* Invokes the API in order to login into the system
 		* 
 		*/
-		login:function(username, password){
+		login:function(username, password, onSuccess){
 
 			// show a loader animation
 			$.mobile.loading( 'show', {
@@ -132,9 +132,7 @@ define(function(){
 				}else{
 					// store the user in the session object so we can access the current user easily throught the application
 					owner.session.user = data;
-
-					// for now just send the user to the User list
-					$.mobile.changePage("userPage");
+					if(typeof(onSuccess) == "function") onSuccess(data);
 				}
 			})
 
