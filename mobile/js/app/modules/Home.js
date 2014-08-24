@@ -8,19 +8,19 @@ define([
 	return {
 
 		activate:function(){
-			$("#newProjectButton").on('click', function(){
-				nav.gotoPage("signupPage")
+			$("#homeNewProjectButton").on('click', function(){
+				nav.gotoPage("signup")
 			});	
 			$("#guideButton").on('click', function(){
-				nav.gotoPage("guidePage")
+				nav.gotoPage("guide")
 			});			
 			$("#signinButton").on('click', function(){
-				nav.gotoPage("loginPage")
+				nav.gotoPage("login")
 			});			
 		},
 
 		deactivate:function(){
-			$('#newProjectButton').unbind('click');
+			$('#homeNewProjectButton').unbind('click');
 			$('#guideButton').unbind('click');
 			$('#signinButton').unbind('click');			
 		}

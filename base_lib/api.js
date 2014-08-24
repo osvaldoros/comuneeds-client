@@ -82,7 +82,7 @@ define(function(){
 			if(params == undefined || params == null || params == ""){
 				paramsString = "";
 			}else{
-				if(typeof(params == "string")){
+				if(typeof(params) == "string"){
 					paramsString = "?" + params;
 				}else if(typeof(params) == "object"){
 					paramsString = "?" + $.param(params);
@@ -95,6 +95,21 @@ define(function(){
 		//===============================================================================
 		//        Auth Methods
 		//===============================================================================
+
+		/*
+		*
+		* getCurrentUser
+		*
+		* Gets the user from the local session, if there is no session, returns null
+		* 
+		*/
+		getCurrentUser:function(){
+			if(this.session && this.session.user){
+				return this.session.user;
+			}
+
+			return null;
+		},
 
 		/*
 		*

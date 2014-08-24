@@ -8,6 +8,7 @@ requirejs.config({
         orbiter: 'third_party_lib/js/Orbiter_2.0.1.817_Release_min',
 
         api:"base_lib/api",
+        listManager:"base_lib/mobile/listManager",
         util:"base_lib/util",
         topic:"base_lib/topic",
         ObiterManager:"base_lib/ObiterManager",        

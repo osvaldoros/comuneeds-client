@@ -1,7 +1,8 @@
 define([
-	'jquery'
+	'jquery',
+	'api'
 	],
-	function($){
+	function($, api){
 
 	return {
 
@@ -23,11 +24,22 @@ define([
 		* loads a page and its controller dynamically, then switches the page to the newly loaded page and activates its controller
 		*
 		*/
-		gotoPage:function(pageName){
+		gotoPage:function(pageName, initObject){
 			var page = this._config.pages[pageName];
 			var owner = this;
 
 			if(typeof(page) != "undefined" && page != null){
+
+
+				if(!this.authCheck(page)){
+					if(this._config.pages.hasOwnProperty("login")){
+						this.gotoPage("login");
+						return;
+					}else{
+						this.gotoPage(this._config.firstPage);
+						return;						
+					}
+				}
 
 				// load the page html into the DOM
 				// TODO: Add check to only load the page once
@@ -49,7 +61,7 @@ define([
 						if(typeof(module.activate) == "function"){
 							owner.currentModule = module;
 							owner.currentPageName = pageName;
-							module.activate();
+							module.activate(initObject);
 						}
 					})
 				})
@@ -66,12 +78,12 @@ define([
 		* loads the previous page in the stack
 		*
 		*/
-		back:function(){		
+		back:function(initObject){		
 			if(this.pageHistory && this.pageHistory.length > 0){
 				var lastPage = this.pageHistory.pop();
-				this.gotoPage(lastPage);
+				this.gotoPage(lastPage, initObject);
 			}else{
-				this.gotoPage(this._config.firstPage);
+				this.gotoPage(this._config.firstPage, initObject);
 			}
 		},
 
@@ -85,7 +97,6 @@ define([
 		* 
 		*/
 		addMenu:function(pageName){
-
 
 
 			var pageNode = $("#" + pageName)[0];
@@ -110,7 +121,7 @@ define([
 					//if(p != pageName){ // don't add a link to the page we're currently on
 						var page = this._config.pages[p];
 
-						if(page.showOnMenu == true){
+						if(page.showOnMenu == true && this.authCheck(page)){
 
 							var liOption = $.parseHTML('<li data-theme="a"></li>');
 							var aOption = $.parseHTML('<a data-transition="slide">' + page.label + '</a>');
@@ -131,6 +142,28 @@ define([
 				$(menuOptionsUL).listview();
 				$(menuPanel).panel();
 				$(menuPanel).trigger("updatelayout");
+			}
+		},
+
+		authCheck:function(page){
+			if(!page) return false;
+			var currentUser = api.getCurrentUser();
+			if(page.requiresAuthentication){
+				if(currentUser){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				if(page.hideAfterAuthentication){
+					if(currentUser){
+						return false;
+					}else{
+						return true;
+					}
+				}else{
+					return true;
+				}
 			}
 		}
 

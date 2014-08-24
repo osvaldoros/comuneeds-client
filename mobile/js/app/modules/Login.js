@@ -8,9 +8,6 @@ define([
 	return {
 
 		activate:function(){
-
-			console.log("LoginForm > activate")
-
 			$("#loginForm").on('submit', function(e){
 				return false;
 			})
@@ -20,7 +17,7 @@ define([
 			})
 
 			$("#loginSignupButton").on('click', function(){
-				nav.gotoPage("signupPage");
+				nav.gotoPage("signup");
 			})
 
 			$("#loginButton").on('click', function(){
@@ -35,15 +32,13 @@ define([
 					return;
 				}
 				api.login(formValues.username, formValues.password, function(user){
-					nav.gotoPage("userPage");
+					nav.gotoPage("myProjects");
 				});
 			})
 
 		},
 
 		deactivate:function(){
-			console.log("LoginForm > deactivate")
-
 			$('#loginForm').unbind('submit');
 			$('#logoutButton').unbind('click');
 			$('#loginButton').unbind('click');

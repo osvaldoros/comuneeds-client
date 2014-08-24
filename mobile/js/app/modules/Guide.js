@@ -14,6 +14,7 @@ define([
 		},
 
 		deactivate:function(){
+			$('#guideBackButton').unbind('click');
 		}
 
 	};

@@ -1,0 +1,52 @@
+<div data-role="page" data-control-title="Signup" id="signup">      
+  
+  <div data-theme="a" data-role="header">
+      <h3>
+      </h3>
+  </div>
+
+  <div data-role="content">
+      <h2>
+          Crear cuenta
+      </h2>
+      <form id="signupForm">
+        <div>
+            <a id="signupLoginButton" class="linkButton" data-transition="fade">
+                Ya tengo cuenta
+            </a>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="nameField">
+                Tu Nombre
+            </label>
+            <input name="name" id="nameField" placeholder="" value="" type="text"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="project_nameField">
+                Nombre de tu primer proyecto
+            </label>
+            <input name="project_name" id="project_nameField" placeholder="Ej: Nombre de tu comunidad" value="" type="text"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="usernameField">
+                Usuario
+            </label>
+            <input name="username" id="usernameField" placeholder="" value="" type="text"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="passwordField">
+                Contraseña
+            </label>
+            <input name="password" id="passwordField" placeholder="" value="" type="password"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="confirm_passwordField">
+                Confirmar Contraseña
+            </label>
+            <input name="confirm_password" id="confirm_passwordField" placeholder="" value="" type="password"/>
+        </div>
+        <input type="submit" id="createAccountButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Crear">
+
+      </form>
+  </div>
+</div>

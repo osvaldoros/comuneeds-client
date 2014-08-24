@@ -1,0 +1,25 @@
+<div data-role="page" data-control-title="newProject" id="newProject">  
+
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="newProjectBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div>
+
+  <div data-role="content">
+      <h2>
+          Nuevo Proyecto
+      </h2>      
+    <form id="newProjectForm">
+      <div data-role="fieldcontain" data-controltype="textinput">
+          <label for="newProjectNameField">
+              Nombre:
+          </label>
+          <input name="name" id="newProjectNameField" placeholder="Ej: Nombre de tu comunidad" value="" type="text"/>
+      </div>
+      <input type="submit" id="createProjectButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Crear">
+    </form>
+  </div>
+</div>
