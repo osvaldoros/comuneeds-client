@@ -28,7 +28,7 @@ define([
 			var owner = this;
 			api.get("matrix", {"project>id":initObject.project.id}, function(response){
 				if(response && response.length){
-					listManager.populateUL($("#matrixList"), response, owner.matrixClicked.bind(this))
+					listManager.populateUL($("#matrixList"), response, owner.matrixClicked.bind(owner))
 				}else{
 					listManager.populateUL($("#matrixList"), [{name:"No hay matrices en este proyecto todavia"}])
 				}
@@ -42,6 +42,7 @@ define([
 
 		deactivate:function(){
 			$('#matricesBackButton').unbind('click');
+			listManager.unbind($("#matrixList"));
 		}
 
 	};

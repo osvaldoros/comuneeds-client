@@ -110,7 +110,7 @@ define([
 
 			formValues.project = {"ref":"project", "id":this.initObject.project.id};
 			var owner = this;
-			api.post("createTeam", formValues, null, function(response){
+			api.post("create_team", formValues, null, function(response){
 				nav.gotoPage("teams", owner.initObject);
 			});
 		},

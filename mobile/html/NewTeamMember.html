@@ -12,38 +12,38 @@
       <h2>
           Nuevo Miembro
       </h2>
-      <h3>
-          Equipo: Juana Perez
-      </h3>
       <form id="newTeamMemberForm">
-        <div data-role="fieldcontain" data-controltype="textinput">
+
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="teamMemberMenu">
+                Usuario:
+            </label>
+            <select id="teamMemberMenu">
+                <option value="NEW">Crear nuevo</option>
+            </select>
+        </div>
+
+        <div id="teamMemberNameFieldContainer" data-role="fieldcontain" data-controltype="textinput">
             <label for="teamMemberNameField">
                 Nombre:
             </label>
             <input name="name" id="teamMemberNameField" placeholder="" value="" type="text"/>
         </div>
-        <div data-controltype="textblock">
-            <p>
-                <em style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
-                    Si deseas que el miembro del equipo pueda acceder al sistema, llena lo siguiente:
-                </em>
-            </p>
-        </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
+        <div id="teamMemberUsernameFieldContainer" data-role="fieldcontain" data-controltype="textinput">
             <label for="teamMemberUsernameField">
-                Usuario (opcional)
+                Usuario
             </label>
             <input name="username" id="teamMemberUsernameField" placeholder="" value="" type="text"/>
         </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
+        <div id="teamMemberPasswordFieldContainer" data-role="fieldcontain" data-controltype="textinput">
             <label for="teamMemberPasswordField">
-                Contraseña (opcional)
+                Contraseña
             </label>
             <input name="password" id="teamMemberPasswordField" placeholder="" value="" type="password"/>
         </div>
-        <div data-role="fieldcontain" data-controltype="textinput">
+        <div id="teamMemberConfirmPasswordFieldContainer" data-role="fieldcontain" data-controltype="textinput">
             <label for="teamMemberConfirmPasswordField">
-                Confirmar Contraseña (opcional)
+                Confirmar Contraseña
             </label>
             <input name="confirm_password" id="teamMemberConfirmPasswordField" placeholder="" value="" type="password"/>
         </div>

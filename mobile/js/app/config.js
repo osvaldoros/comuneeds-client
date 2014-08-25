@@ -79,6 +79,12 @@ define({
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
+		team: {
+			url:"html/Team.html", 
+			controller:"mobile/js/app/modules/Team", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
 		newTeamMember: {
 			url:"html/NewTeamMember.html", 
 			controller:"mobile/js/app/modules/NewTeamMember", 

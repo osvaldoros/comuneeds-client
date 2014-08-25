@@ -14,7 +14,21 @@ define([
 
 			if(currentUser){
 				api.get("project", {"administrator>id":currentUser.id}, function(response){
-					listManager.populateUL($("#projectList"), response, owner.projectClicked.bind(this))
+					if(response && response.length){
+						listManager.populateUL($("#projectList"), response, owner.projectClicked.bind(owner))
+					}else{
+						listManager.populateUL($("#projectList"), [{name:"No has creado ningun proyecto todavia"}])
+					}
+				})
+				api.get("shared_projects", {"user_id":currentUser.id}, function(response){
+					
+
+					if(response && response.length){
+						listManager.populateUL($("#sharedProjectList"), response, owner.projectClicked.bind(owner))
+					}else{
+						listManager.populateUL($("#sharedProjectList"), [{name:"No tienes proyectos compartidos todavia"}])
+					}
+
 				})
 			}
 
@@ -31,6 +45,7 @@ define([
 		deactivate:function(){
 			$('#newProjectButton').unbind('click');
 			listManager.unbind($("#projectList"));
+			listManager.unbind($("#sharedProjectList"));
 		}
 
 	};
