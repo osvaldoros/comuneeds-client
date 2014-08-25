@@ -37,7 +37,7 @@ define([
 		},
 
 		matrixClicked:function(matrix){
-
+			nav.gotoPage("matrix", {project: this.initObject.project, matrix:matrix});
 		},
 
 		deactivate:function(){

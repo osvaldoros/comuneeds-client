@@ -41,12 +41,26 @@ define([
 					listManager.populateUL($("#teamMemberList"), [{name:"No hay equipos en este proyecto todavia"}])
 				}
 			})	
+
+			api.get("matrix", {"project>id":initObject.project.id}, function(response){
+				if(response && response.length){
+					listManager.populateUL($("#teamMatrixList"), response, owner.matrixClicked.bind(owner))
+				}else{
+					listManager.populateUL($("#teamMatrixList"), [{name:"No hay matrices en este proyecto todavia"}])
+				}
+			})	
+
+		},
+
+		matrixClicked:function(matrix){
+			nav.gotoPage("needs", {project: this.initObject.project, matrix:matrix, team:this.initObject.team});
 		},
 
 		deactivate:function(){
 			$('#teamBackButton').unbind('click');
 			$('#newTeamMemberButton').unbind('click');
 			listManager.unbind($("#teamMemberList"));
+			listManager.unbind($("#teamMatrixList"));
 		}
 
 	};

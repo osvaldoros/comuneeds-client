@@ -73,6 +73,12 @@ define({
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
+		matrix: {
+			url:"html/Matrix.html", 
+			controller:"mobile/js/app/modules/Matrix", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
 		newMatrix: {
 			url:"html/NewMatrix.html", 
 			controller:"mobile/js/app/modules/NewMatrix", 
@@ -82,6 +88,18 @@ define({
 		team: {
 			url:"html/Team.html", 
 			controller:"mobile/js/app/modules/Team", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		needs: {
+			url:"html/Needs.html", 
+			controller:"mobile/js/app/modules/Needs", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		categories: {
+			url:"html/Categories.html", 
+			controller:"mobile/js/app/modules/Categories", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},

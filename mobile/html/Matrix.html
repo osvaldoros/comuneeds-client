@@ -1,0 +1,42 @@
+<div data-role="page" data-control-title="matrix" id="matrix">  
+  
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="matrixBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div> 
+  <div data-role="content">  
+    <h2 id="matrixName">
+        {Matriz}
+    </h2>         
+    <div>
+        <a id="downloadFullMatrixButton" target="_blank" class="linkButton" data-transition="fade">
+            Ver la matriz completa (PDF)
+        </a>
+    </div>
+    <h3>
+        Unificar Respuestas
+    </h3>
+    <div data-controltype="textblock">
+        <p>
+            <span style="font-size: small;">
+                <em>
+                    <span style="color: rgb(51, 153, 102);" data-mce-style="color: #339966;">
+                        ﻿﻿Combina las respuestas de todos los equipos eliminando duplicados y sinonimos.
+                    </span>
+                </em>
+            </span>
+        </p>
+    </div>
+    <a data-role="button" data-theme="e" id="unifyMatrixButton" data-icon="gear" data-iconpos="left">
+        Unificar
+    </a>
+    <div>
+        <a id="openUnifiedMatrixButton" target="_blank" class="linkButton" data-transition="fade">
+            Ver matriz unificada
+        </a>
+    </div>    
+  </div>
+</div>
