@@ -8,12 +8,12 @@ define([
 		/*
 		*
 		*
-		* populate 
+		* populateUL 
 		* 
-		* Replaces all the items in a list with the 'data' array
+		* Replaces all the items in an unordered list with 'li' items from the 'data' array
 		*
 		*/
-		populate:function(list, data, clickHandler){
+		populateUL:function(list, data, clickHandler){
 			if(!list || !data || data.length == undefined){
 				return;
 			}
@@ -51,8 +51,33 @@ define([
 
 	        });
 
-
 			$(list).listview('refresh');
+		},
+
+		/*
+		*
+		*
+		* populateSelect 
+		* 
+		* Replaces all the items in a select with 'option' items from the 'data' array
+		*
+		*/
+		populateSelect:function(list, data){
+			if(!list || !data || data.length == undefined){
+				return;
+			}
+
+			$(list).empty();
+			$.each(data, function(i, item) {
+				if(item){
+					var listItem = $('<option value=""></option>').clone();
+					listItem.val(item.id);
+					listItem.text(item.name);
+					$(list).append(listItem);
+				}
+
+	        });
+
 		},
 
 		/*

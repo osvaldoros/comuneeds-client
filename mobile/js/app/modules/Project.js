@@ -45,7 +45,7 @@ define([
 				{name:"Equipos", count:teamsLength, page:"teams"}
 			];
 
-			listManager.populate($("#projectCollectionList"), projectCollections, this.collectionClicked.bind(this));
+			listManager.populateUL($("#projectCollectionList"), projectCollections, this.collectionClicked.bind(this));
 		},
 
 		collectionClicked:function(collection){

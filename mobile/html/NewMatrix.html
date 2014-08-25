@@ -1,0 +1,43 @@
+<div data-role="page" data-control-title="newMatrix" id="newMatrix">  
+
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="newMatrixBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div>
+
+  <div data-role="content">
+      <h2>
+          Nueva matriz
+      </h2>
+      <form id="newMatrixForm">
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="matrixNameField">
+                Nombre de la Matriz:
+            </label>
+            <input name="name" id="matrixNameField" placeholder="" value="" type="text"/>
+        </div>
+        <input type="submit" id="createMatrixButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Crear">
+        <div data-controltype="textblock">
+            <p>
+                <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                    <em>
+                        Puedes crear matrices enfocadas en distintos aspectos.
+                    </em>
+                </span>
+            </p>
+            <p>
+                <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                    <em>
+                        Por ejemplo puedes tener una matriz para los factores que dificultan la
+                        satisfaccion de las necesidades y otra para los factores ideales para su
+                        realizacion.
+                    </em>
+                </span>
+            </p>
+        </div>
+      </form>
+  </div>
+</div>

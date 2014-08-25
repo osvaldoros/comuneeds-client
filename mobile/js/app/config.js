@@ -61,9 +61,27 @@ define({
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
+		newTeam: {
+			url:"html/NewTeam.html", 
+			controller:"mobile/js/app/modules/NewTeam", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
 		matrices: {
 			url:"html/Matrices.html", 
 			controller:"mobile/js/app/modules/Matrices", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		newMatrix: {
+			url:"html/NewMatrix.html", 
+			controller:"mobile/js/app/modules/NewMatrix", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		newTeamMember: {
+			url:"html/NewTeamMember.html", 
+			controller:"mobile/js/app/modules/NewTeamMember", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		}

@@ -11,13 +11,13 @@ define([
 		activate:function(initObject){
 			
 			if(!initObject || !initObject.project){
-				alert("No se encontro la lista de equipos");
+				alert("No se encontro la lista de matrices");
 				nav.gotoPage("myProjects");
 				return;
 			}
 
 			$("#matricesBackButton").on('click', function(){
-				nav.back(initObject);
+				nav.gotoPage("myProjects", initObject);
 			});		
 
 			this.initObject = initObject;
@@ -28,9 +28,9 @@ define([
 			var owner = this;
 			api.get("matrix", {"project>id":initObject.project.id}, function(response){
 				if(response && response.length){
-					listManager.populate($("#matrixList"), response, owner.matrixClicked.bind(this))
+					listManager.populateUL($("#matrixList"), response, owner.matrixClicked.bind(this))
 				}else{
-					listManager.populate($("#matrixList"), [{name:"No hay matrices en este proyecto todavia"}])
+					listManager.populateUL($("#matrixList"), [{name:"No hay matrices en este proyecto todavia"}])
 				}
 			})	
 

@@ -1,0 +1,53 @@
+<div data-role="page" data-control-title="newTeamMember" id="newTeamMember">  
+
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="newTeamMemberBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div>
+
+  <div data-role="content">
+      <h2>
+          Nuevo Miembro
+      </h2>
+      <h3>
+          Equipo: Juana Perez
+      </h3>
+      <form id="newTeamMemberForm">
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamMemberNameField">
+                Nombre:
+            </label>
+            <input name="name" id="teamMemberNameField" placeholder="" value="" type="text"/>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                <em style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                    Si deseas que el miembro del equipo pueda acceder al sistema, llena lo siguiente:
+                </em>
+            </p>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamMemberUsernameField">
+                Usuario (opcional)
+            </label>
+            <input name="username" id="teamMemberUsernameField" placeholder="" value="" type="text"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamMemberPasswordField">
+                Contraseña (opcional)
+            </label>
+            <input name="password" id="teamMemberPasswordField" placeholder="" value="" type="password"/>
+        </div>
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamMemberConfirmPasswordField">
+                Confirmar Contraseña (opcional)
+            </label>
+            <input name="confirm_password" id="teamMemberConfirmPasswordField" placeholder="" value="" type="password"/>
+        </div>
+        <input type="submit" id="createTeamMemberButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Crear">
+      </form>
+  </div>
+</div>

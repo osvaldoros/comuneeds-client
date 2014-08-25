@@ -24,9 +24,10 @@ define([
 		* loads a page and its controller dynamically, then switches the page to the newly loaded page and activates its controller
 		*
 		*/
-		gotoPage:function(pageName, initObject){
+		gotoPage:function(pageName, initObject, recordHistory){
 			var page = this._config.pages[pageName];
 			var owner = this;
+			if(recordHistory == undefined) recordHistory = true;
 
 			if(typeof(page) != "undefined" && page != null){
 
@@ -52,7 +53,7 @@ define([
 					$.mobile.changePage("#" + pageName);
 					// if there is already a currentModule deactivate it ( the controller of the page we are leaving )
 					if(owner.currentModule != null && typeof(owner.currentModule.deactivate) == "function"){
-						owner.pageHistory.push(owner.currentPageName);
+						if(recordHistory) owner.pageHistory.push(owner.currentPageName);
 						owner.currentModule.deactivate();
 					}
 					// load the new controller via RequireJS
@@ -81,9 +82,9 @@ define([
 		back:function(initObject){		
 			if(this.pageHistory && this.pageHistory.length > 0){
 				var lastPage = this.pageHistory.pop();
-				this.gotoPage(lastPage, initObject);
+				this.gotoPage(lastPage, initObject, false);
 			}else{
-				this.gotoPage(this._config.firstPage, initObject);
+				this.gotoPage(this._config.firstPage, initObject, false);
 			}
 		},
 

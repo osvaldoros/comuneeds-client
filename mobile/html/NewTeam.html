@@ -1,0 +1,61 @@
+<div data-role="page" data-control-title="newTeam" id="newTeam">  
+
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="newTeamBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div>
+
+  <div data-role="content">
+      <h2>
+          Nuevo Equipo
+      </h2>
+      <div data-controltype="textblock">
+          <p>
+              <em style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                  Los equipos se nombran automaticamente en base al coordinador, quien sera responsable de ingresar las respuestas de su equipo al sistema.
+              </em>
+          </p>
+      </div>
+
+      <form id="newTeamForm">
+
+        <div data-role="fieldcontain" data-controltype="selectmenu">
+            <label for="coordinatorMenu">
+                Coordinador:
+            </label>
+            <select id="coordinatorMenu">
+                <option value="NEW">Crear nuevo</option>
+            </select>
+        </div>
+
+        <div id="teamFieldContainer" data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamNameField">
+                Nombre del coordinador:
+            </label>
+            <input name="name" id="teamNameField" placeholder="" value="" type="text"/>
+        </div>
+        <div id="usernameFieldContainer" data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamCoordinatorUsernameField">
+                Usuario
+            </label>
+            <input name="username" id="teamCoordinatorUsernameField" placeholder="" value="" type="text"/>
+        </div>
+        <div id="passwordFieldContainer" data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamCoordinatorPasswordField">
+                Contraseña
+            </label>
+            <input name="password" id="teamCoordinatorPasswordField" placeholder="" value="" type="password"/>
+        </div>
+        <div id="confirmPasswordFieldContainer" data-role="fieldcontain" data-controltype="textinput">
+            <label for="teamCoordinatorConfirmPasswordField">
+                Confirmar Contraseña
+            </label>
+            <input name="confirm_password" id="teamCoordinatorConfirmPasswordField" placeholder="" value="" type="password"/>
+        </div>
+        <input type="submit" id="createTeamButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Crear">
+      </form>
+  </div>
+</div>

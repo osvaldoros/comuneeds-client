@@ -14,7 +14,7 @@ define([
 
 			if(currentUser){
 				api.get("project", {"administrator>id":currentUser.id}, function(response){
-					listManager.populate($("#projectList"), response, owner.projectClicked.bind(this))
+					listManager.populateUL($("#projectList"), response, owner.projectClicked.bind(this))
 				})
 			}
 

@@ -30,9 +30,9 @@ define([
 			var owner = this;
 			api.get("team", {"project>id":initObject.project.id}, function(response){
 				if(response && response.length){
-					listManager.populate($("#teamList"), response, owner.teamClicked.bind(this))
+					listManager.populateUL($("#teamList"), response, owner.teamClicked.bind(this))
 				}else{
-					listManager.populate($("#teamList"), [{name:"No hay equipos en este proyecto todavia"}])
+					listManager.populateUL($("#teamList"), [{name:"No hay equipos en este proyecto todavia"}])
 				}
 			})	
 
