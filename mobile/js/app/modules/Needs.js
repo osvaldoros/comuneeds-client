@@ -24,30 +24,70 @@ define([
 				return;
 			}				
 
-			$("#needsMatrixName").text(initObject.matrix.name)
+			$("#needsMatrixName").text("Matriz: " + initObject.matrix.name);
 
-			$("#matrixBackButton").on('click', function(){
+			var owner = this;
+			$("#needsBackButton").on('click', function(){
 				nav.gotoPage("team", initObject);
 			});	
 
-			$("#SUBSISTENCE").on('click', this.chooseNeed.bind(this))
-			$("#PROTECTION").on('click', this.chooseNeed.bind(this))
-			$("#AFFECTION").on('click', this.chooseNeed.bind(this))
-			$("#UNDERSTANDING").on('click', this.chooseNeed.bind(this))
-			$("#PARTICIPATION").on('click', this.chooseNeed.bind(this))
-			$("#LEISURE").on('click', this.chooseNeed.bind(this))
-			$("#CREATION").on('click', this.chooseNeed.bind(this))
-			$("#IDENTITY").on('click', this.chooseNeed.bind(this))
-			$("#LIBERTY").on('click', this.chooseNeed.bind(this))
+			$("#SUBSISTENCE").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#PROTECTION").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#AFFECTION").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#UNDERSTANDING").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#PARTICIPATION").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#LEISURE").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#CREATION").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#IDENTITY").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
+			$("#LIBERTY").on('click', function(){
+				owner.chooseNeed(owner, this);
+			});
+
 
 		},
 
-		chooseNeed:function(){
-			nav.gotoPage("categories", this.initObject);
+
+
+		chooseNeed:function(self, element){
+			if(app.utils.ObjectUtils.isObject(element) && element.hasOwnProperty("id")){
+				var initObj = {
+					project: self.initObject.project,
+					matrix: self.initObject.matrix,
+					team: self.initObject.team,
+					need:{id:element.id, name:$(element).text().trim()}
+				}
+				nav.gotoPage("categories", initObj);
+			}else{
+				alert("Error: No es posible seleccionar la necesidad");
+			}
 		},
 
 		deactivate:function(){
-			$('#matrixBackButton').unbind('click');
+			$('#needsBackButton').unbind('click');
 
 			$("#SUBSISTENCE").unbind('click');
 			$("#PROTECTION").unbind('click');

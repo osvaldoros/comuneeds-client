@@ -3,7 +3,7 @@
   <div data-theme="a" data-role="header">
       <span class="ui-title">
       </span>
-      <a data-role="button" id="matrixBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+      <a data-role="button" id="needsBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
           Regresar
       </a>
   </div> 
@@ -11,9 +11,15 @@
     <h2 id="needsMatrixName">
         {matrix}
     </h2>
-    <h3>
-        Necesidades
-    </h3>
+      <div data-controltype="textblock">
+          <p>
+              <span style="color: rgb(51, 153, 102); font-size: small;" data-mce-style="color: #339966; font-size: small;">
+                  <em>
+                      Escoge una necesidad
+                  </em>
+              </span>
+          </p>
+      </div>
     <ul data-role="listview" data-divider-theme="b" data-inset="true">
         <li id="SUBSISTENCE" data-theme="c">
             <a data-transition="slide">

@@ -26,13 +26,25 @@ define([
 				return;
 			}				
 
+			$("#projectBackButton").on('click', function(){
+				nav.gotoPage("myProjects", {back:true});
+			});				
+
 			this.initObject = initObject;
+			var owner = this;
 
 			$("#projectName").text(initObject.project.name);
 			$("#projectCreationDate").text(new Date(initObject.project.created));
-			$("#projectAdminName").text(initObject.project.administrator.name);
+			if(app.utils.ObjectUtils.isObject(initObject) && app.utils.ObjectUtils.isObject(initObject.project) && app.utils.ObjectUtils.isObject(initObject.project.administrator)){
+				$("#projectAdminName").text(initObject.project.administrator.name);
 
-			var owner = this;
+			}else{
+				api.get("project", {"id":initObject.project.id}, function(response){
+					initObject.project = response;
+					$("#projectAdminName").text(initObject.project.administrator.name);
+				});
+			}
+
 			api.get("matrix", {"project>id":initObject.project.id}, function(response){
 				owner.matrices = response;
 				api.get("team", {"project>id":initObject.project.id}, function(response){

@@ -1,3 +1,6 @@
+// starting the path with / and adding the .js extension bypasses the baseUrl system and loads the file directly from where instructed
+var controllerPath = "/mobile/js/app/modules/";
+
 define({
 	firstPage:"home",
 
@@ -8,33 +11,33 @@ define({
 		//------------------------------------
 		home: {
 			url:"html/Home.html", 
-			controller:"mobile/js/app/modules/Home", 
+			controller:controllerPath + "Home.js", 
 			label:"Inicio", 
 			showOnMenu:true
 		},
 		guide: {
 			url:"html/Guide.html",
-			controller:"mobile/js/app/modules/Guide",
+			controller:controllerPath + "Guide.js",
 			label:"Guia",
 			showOnMenu:true
 		},
 		signup: {
 			url:"html/Signup.html",
-			controller:"mobile/js/app/modules/Signup",
+			controller:controllerPath + "Signup.js",
 			label:"Crear una cuenta",
 			showOnMenu:true,
 			hideAfterAuthentication:true
 		},
 		myProjects: {
 			url:"html/MyProjects.html",
-			controller:"mobile/js/app/modules/MyProjects",
+			controller:controllerPath + "MyProjects.js",
 			label:"Mis Proyectos",
 			showOnMenu:true,
 			requiresAuthentication:true
 		},
 		login: {
 			url:"html/Login.html",
-			controller:"mobile/js/app/modules/Login",
+			controller:controllerPath + "Login.js",
 			label:"Ya tengo cuenta",
 			showOnMenu:true,
 			hideAfterAuthentication:true
@@ -45,67 +48,79 @@ define({
 		//------------------------------------
 		newProject: {
 			url:"html/NewProject.html", 
-			controller:"mobile/js/app/modules/NewProject", 
+			controller:controllerPath + "NewProject.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		project: {
 			url:"html/Project.html", 
-			controller:"mobile/js/app/modules/Project", 
+			controller:controllerPath + "Project.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		teams: {
 			url:"html/Teams.html", 
-			controller:"mobile/js/app/modules/Teams", 
+			controller:controllerPath + "Teams.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		newTeam: {
 			url:"html/NewTeam.html", 
-			controller:"mobile/js/app/modules/NewTeam", 
+			controller:controllerPath + "NewTeam.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		matrices: {
 			url:"html/Matrices.html", 
-			controller:"mobile/js/app/modules/Matrices", 
+			controller:controllerPath + "Matrices.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		matrix: {
 			url:"html/Matrix.html", 
-			controller:"mobile/js/app/modules/Matrix", 
+			controller:controllerPath + "Matrix.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		newMatrix: {
 			url:"html/NewMatrix.html", 
-			controller:"mobile/js/app/modules/NewMatrix", 
+			controller:controllerPath + "NewMatrix.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		team: {
 			url:"html/Team.html", 
-			controller:"mobile/js/app/modules/Team", 
+			controller:controllerPath + "Team.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		needs: {
 			url:"html/Needs.html", 
-			controller:"mobile/js/app/modules/Needs", 
+			controller:controllerPath + "Needs.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		categories: {
 			url:"html/Categories.html", 
-			controller:"mobile/js/app/modules/Categories", 
+			controller:controllerPath + "Categories.js", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		categoryElements: {
+			url:"html/CategoryElements.html", 
+			controller:controllerPath + "CategoryElements.js", 
+			showOnMenu:false,
+			requiresAuthentication:true
+		},
+		categoryInput: {
+			url:"html/CategoryInput.html", 
+			controller:controllerPath + "CategoryInput.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		},
 		newTeamMember: {
 			url:"html/NewTeamMember.html", 
-			controller:"mobile/js/app/modules/NewTeamMember", 
+			controller:controllerPath + "NewTeamMember.js", 
 			showOnMenu:false,
 			requiresAuthentication:true
 		}

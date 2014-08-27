@@ -28,11 +28,11 @@ define([
 			}	
 
 			$("#teamsBackButton").on('click', function(){
-				nav.gotoPage("myProjects");
+				nav.gotoPage("project", initObject);
 			});	
 
 			// If am the admin of the project
-			if(initObject.project.administrator.id == currentUser.id){
+			if(app.utils.ObjectUtils.isObject(initObject) && app.utils.ObjectUtils.isObject(initObject.project) && app.utils.ObjectUtils.isObject(initObject.project.administrator) && initObject.project.administrator.id == currentUser.id){
 				$("#newTeamButton").show();
 				$("#newTeamButton").on('click', function(){
 					nav.gotoPage("newTeam", initObject);

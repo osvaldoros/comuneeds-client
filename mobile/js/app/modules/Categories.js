@@ -24,26 +24,46 @@ define([
 				return;
 			}				
 
-			$("#categoriesMatrixName").text(initObject.matrix.name)
-			$("#categoriesNeedName").text(initObject.need.name)
+			$("#categoriesMatrixName").text("Matriz: " + initObject.matrix.name)
+			$("#categoriesNeedName").text("Necesidad: " + initObject.need.name)
 
-			$("#matrixBackButton").on('click', function(){
-				nav.back();
+			$("#categoriesBackButton").on('click', function(){
+				nav.gotoPage("needs", initObject);
 			});	
 
-			$("#BEING").on('click', this.chooseCategory.bind(this))
-			$("#HAVING").on('click', this.chooseCategory.bind(this))
-			$("#DOING").on('click', this.chooseCategory.bind(this))
-			$("#INTERACTING").on('click', this.chooseCategory.bind(this))
+			var owner = this;
+			$("#BEING").on('click', function(){
+				owner.chooseCategory(owner, this);
+			});	
+			$("#HAVING").on('click', function(){
+				owner.chooseCategory(owner, this);
+			});	
+			$("#DOING").on('click', function(){
+				owner.chooseCategory(owner, this);
+			});	
+			$("#INTERACTING").on('click', function(){
+				owner.chooseCategory(owner, this);
+			});			
 
 		},
 
-		chooseCategory:function(){
-
+		chooseCategory:function(self, element){
+			if(app.utils.ObjectUtils.isObject(element) && element.hasOwnProperty("id")){
+				var initObj = {
+					project: self.initObject.project,
+					matrix: self.initObject.matrix,
+					team: self.initObject.team,
+					need: self.initObject.need,
+					category:{id:element.id, name:$(element).text().trim()}
+				}
+				nav.gotoPage("categoryElements", initObj);
+			}else{
+				alert("Error: No es posible seleccionar la necesidad");
+			}
 		},
 
 		deactivate:function(){
-			$('#matrixBackButton').unbind('click');
+			$('#categoriesBackButton').unbind('click');
 			
 			$("#BEING").unbind('click');
 			$("#HAVING").unbind('click');

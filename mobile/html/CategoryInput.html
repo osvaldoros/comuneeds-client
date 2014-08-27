@@ -1,0 +1,31 @@
+<div data-role="page" data-control-title="categoryInput" id="categoryInput">  
+  
+  <div data-theme="a" data-role="header">
+      <span class="ui-title">
+      </span>
+      <a data-role="button" id="categoryInputBackButton" data-icon="back" data-iconpos="left" class="ui-btn-right">
+          Regresar
+      </a>
+  </div> 
+
+  <div data-role="content">
+      <h2 id="categoryInputMatrixName">
+          {matrix}
+      </h2>
+      <h3 id="categoryInputNeedName">
+          {need}
+      </h3>
+      <h4 id="categoryInputCategoryName">
+          {category}
+      </h4>
+      <form id="addCategoryElementForm">
+        <div data-role="fieldcontain" data-controltype="textinput">
+            <label for="categoryContentField">
+                Elemento:
+            </label>
+            <input name="name" id="categoryContentField" placeholder="" value="" type="text"/>
+        </div>
+        <input type="submit" id="addElementSubmitButton" data-theme="b" data-icon="plus" data-iconpos="left" value="Agregar">
+      </form>
+  </div>
+</div>

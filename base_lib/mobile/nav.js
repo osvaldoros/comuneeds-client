@@ -34,9 +34,11 @@ define([
 
 				if(!this.authCheck(page)){
 					if(this._config.pages.hasOwnProperty("login")){
+						//page = this._config.pages["login"];
 						this.gotoPage("login");
 						return;
 					}else{
+						//page = this._config.pages[this._config.firstPage];
 						this.gotoPage(this._config.firstPage);
 						return;						
 					}

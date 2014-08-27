@@ -32,6 +32,11 @@ requirejs([
 
 function ($, orbiter, config, api, util, nav, ObiterManager) {
 
+	app = {};
+	app.utils = {};
+	app.utils.ObjectUtils = {};
+	app.utils.ObjectUtils.isObject = util.isObject;
+
 	//===================================================
 	//          JQuery event handlers
 	//===================================================
