@@ -8,6 +8,13 @@ define([
 	function($, api, nav, listManager, util){
 	return {
 
+		categoryDescriptions:{
+			BEING:"Atributos personales o colectivos. Sustantivos",
+			HAVING:"Instituciones, normas, mecanismos, herramientas",
+			DOING:"Acciones personales o colectivas. Verbos",
+			INTERACTING:"Espacios, ambientes"
+		},		
+
 		activate:function(initObject){
 
 			if(!initObject || !initObject.project){
@@ -27,7 +34,11 @@ define([
 
 			$("#categoryElementsMatrixName").text("Matriz: " + initObject.matrix.name)
 			$("#categoryElementsNeedName").text("Necesidad: " + initObject.need.name)			
-			$("#categoryElementsCategoryName").text("Categoria: " + initObject.category.name)			
+			$("#categoryElementsCategoryName").text("Categoria: " + initObject.category.name)	
+
+			if(app.utils.ObjectUtils.isObject(initObject.category) && this.categoryDescriptions[ initObject.category.id ] ){
+				$("#categoryElementsDescription").text(this.categoryDescriptions[ initObject.category.id ])			
+			}	
 
 			$("#categoryElementsBackButton").on('click', function(){
 				nav.gotoPage("categories", initObject);

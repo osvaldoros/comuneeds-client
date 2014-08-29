@@ -27,14 +27,13 @@ define([
 			this.initObject = initObject;
 
 			$("#matrixName").text(initObject.matrix.name);
+
+			$('#downloadFullMatrixButton').attr('href',api.getApiPath() + '/matrix_pdf?matrix_id=' + initObject.matrix.id);
 			
 			$("#matrixBackButton").on('click', function(){
 				nav.gotoPage("matrices", initObject);
 			});	
 			
-			$("#downloadFullMatrixButton").on('click', function(){
-				alert("Coming Soon");
-			});	
 
 			$("#unifyMatrixButton").on('click', function(){
 				alert("Coming Soon");

@@ -37,6 +37,11 @@ define(function(){
 			})
 		},
 
+
+		getApiPath:function(){
+			return this.host + "/api/comuneeds";
+		},
+
 		/*
 		*
 		* get

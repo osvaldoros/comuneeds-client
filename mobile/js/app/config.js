@@ -128,7 +128,7 @@ define({
 	},
 
 	union:{
-		enabled:true,
+		enabled:false,
 		host:"174.129.221.136",
 		port:"9110"
 	}

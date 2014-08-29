@@ -7,6 +7,13 @@ define([
 	function($, api, nav, util){
 	return {
 
+		categoryDescriptions:{
+			BEING:"Atributos personales o colectivos. Sustantivos",
+			HAVING:"Instituciones, normas, mecanismos, herramientas",
+			DOING:"Acciones personales o colectivas. Verbos",
+			INTERACTING:"Espacios, ambientes"
+		},	
+
 		activate:function(initObject){
 
 			if(!initObject || !initObject.project){
@@ -22,7 +29,7 @@ define([
 				alert("Por entra al sistema con tu usuario y contraseña");
 				nav.gotoPage("login");
 				return;
-			}				
+			}			
 
 			$("#addCategoryElementForm").on('submit', function(e){
 				return false;
@@ -34,7 +41,11 @@ define([
 
 			$("#categoryInputMatrixName").text("Matriz: " + initObject.matrix.name)
 			$("#categoryInputNeedName").text("Necesidad: " + initObject.need.name)			
-			$("#categoryInputCategoryName").text("Categoria: " + initObject.category.name)				
+			$("#categoryInputCategoryName").text("Categoria: " + initObject.category.name)		
+
+			if(app.utils.ObjectUtils.isObject(initObject.category) && this.categoryDescriptions[ initObject.category.id ] ){
+				$("#categoryDescription").text(this.categoryDescriptions[ initObject.category.id ])			
+			}	
 
 			$("#addElementSubmitButton").on('click', this.postCategoryElement.bind(this));				
 		},
