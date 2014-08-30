@@ -111,8 +111,12 @@ define([
 			formValues.project = {"ref":"project", "id":this.initObject.project.id};
 			var owner = this;
 			api.post("create_team", formValues, null, function(response){
-				nav.gotoPage("teams", owner.initObject);
-			});
+				if(app.utils.ObjectUtils.isObject(owner.initObject) &&  owner.initObject.pageOnComplete){
+					nav.gotoPage(owner.initObject.pageOnComplete, {project: owner.initObject.project, matrix:owner.initObject.matrix, team:response});
+				}else{
+					nav.gotoPage("teams", owner.initObject);
+				}
+			});			
 		},
 
 		deactivate:function(){

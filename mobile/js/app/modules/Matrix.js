@@ -2,14 +2,15 @@ define([
 	'jquery',
 	'api',
 	'nav',
+	'listManager',
 	'util'
 	],
-	function($, api, nav, util){
+	function($, api, nav, listManager, util){
 	return {
 
 		activate:function(initObject){
 
-
+			var owner = this;
 
 			if(!initObject || !initObject.project){
 				alert("No se encontro el proyecto");
@@ -41,8 +42,29 @@ define([
 			
 			$("#openUnifiedMatrixButton").on('click', function(){
 				alert("Coming Soon");
-			});				
+			});			
+
+			api.get("team", {"project>id":initObject.project.id}, function(response){
+				if(response && response.length){
+					listManager.populateUL($("#matrixTeamList"), response, owner.teamClicked.bind(owner))
+				}else{
+					if(app.utils.ObjectUtils.isObject(initObject) && app.utils.ObjectUtils.isObject(initObject.project) && app.utils.ObjectUtils.isObject(initObject.project.administrator) && initObject.project.administrator.id == currentUser.id){
+						listManager.populateUL($("#matrixTeamList"), [{name:"Crear nuevo equipo"}], owner.createNewTeamClicked.bind(owner))
+					}else{
+						listManager.populateUL($("#matrixTeamList"), [{name:"No hay equipos en este proyecto todavia"}])
+					}
+				}
+			})	
+
 		},
+
+		teamClicked:function(team){
+			nav.gotoPage("needs", {project: this.initObject.project, matrix:this.initObject.matrix, team:team});
+		},
+
+		createNewTeamClicked:function(team){
+			nav.gotoPage("newTeam", {project: this.initObject.project, matrix:this.initObject.matrix, pageOnComplete:"needs"});
+		},				
 
 		deactivate:function(){
 			$('#matrixBackButton').unbind('click');

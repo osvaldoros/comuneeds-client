@@ -46,7 +46,11 @@ define([
 				if(response && response.length){
 					listManager.populateUL($("#teamMatrixList"), response, owner.matrixClicked.bind(owner))
 				}else{
-					listManager.populateUL($("#teamMatrixList"), [{name:"No hay matrices en este proyecto todavia"}])
+					if(app.utils.ObjectUtils.isObject(initObject) && app.utils.ObjectUtils.isObject(initObject.project) && app.utils.ObjectUtils.isObject(initObject.project.administrator) && initObject.project.administrator.id == currentUser.id){
+						listManager.populateUL($("#teamMatrixList"), [{name:"Crear nueva matrix"}], owner.createNewMatrixClicked.bind(owner))
+					}else{
+						listManager.populateUL($("#teamMatrixList"), [{name:"No hay matrices en este proyecto todavia"}])
+					}
 				}
 			})	
 
@@ -54,6 +58,10 @@ define([
 
 		matrixClicked:function(matrix){
 			nav.gotoPage("needs", {project: this.initObject.project, matrix:matrix, team:this.initObject.team});
+		},
+
+		createNewMatrixClicked:function(matrix){
+			nav.gotoPage("newMatrix", {project: this.initObject.project, matrix:matrix, team:this.initObject.team, pageOnComplete:"needs"});
 		},
 
 		deactivate:function(){

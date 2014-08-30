@@ -55,7 +55,11 @@ define([
 			formValues.project = {"ref":"project", "id":this.initObject.project.id};
 			var owner = this;
 			api.post("matrix", formValues, null, function(response){
-				nav.gotoPage("matrices", owner.initObject);
+				if(app.utils.ObjectUtils.isObject(owner.initObject) &&  owner.initObject.pageOnComplete){
+					nav.gotoPage(owner.initObject.pageOnComplete, {project: owner.initObject.project, matrix:response, team:owner.initObject.team});
+				}else{
+					nav.gotoPage("matrices", owner.initObject);
+				}
 			});
 		},
 
